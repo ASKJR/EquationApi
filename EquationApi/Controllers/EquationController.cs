@@ -4,13 +4,13 @@ using EquationApi.Models;
 namespace EquationApi.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
-    public class EquationsController : ControllerBase
+    [Route("api/v1/equations")]
+    public class EquationController : ControllerBase
     {
 
-        private readonly ILogger<EquationsController> _logger;
+        private readonly ILogger<EquationController> _logger;
 
-        public EquationsController(ILogger<EquationsController> logger)
+        public EquationController(ILogger<EquationController> logger)
         {
             _logger = logger;
         }
