@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  equationapi:
+    image: ${DOCKER_REGISTRY-}equationapi
+    container_name: equation-api
+    environment:
+      - VIRTUAL_HOST=equation-api.albertokato.com.br
+      - VIRTUAL_PORT=80
+    build:
+      context: .
+      dockerfile: EquationApi/Dockerfile
+    expose:
+      - "80"
+    external_links:
+      - web.nginx-proxy
+    restart: always
+    working_dir: /app
+networks:
+  default:
+    external:
+      name: main
