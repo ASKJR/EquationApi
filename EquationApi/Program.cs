@@ -1,11 +1,13 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace EquationApi
 {
+    [ExcludeFromCodeCoverage]
     public class Program
     {
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-            // TODO: Add unit tests
             // TODO: Check CORS
             // Add services to the container.
 
