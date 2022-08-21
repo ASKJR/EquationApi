@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using EquationApi.Models;
+using EquationApi.Repositories;
 
 namespace EquationApi.Controllers
 {
@@ -9,18 +10,18 @@ namespace EquationApi.Controllers
     {
 
         private readonly ILogger<EquationController> _logger;
+        private readonly IEquationRepository repository;
 
         public EquationController(ILogger<EquationController> logger)
         {
             _logger = logger;
+            repository = new EquationRepository();
         }
 
         [HttpGet]
-        public IEnumerable<Equation> Get()
+        public IEnumerable<Equation> Get(int qty)
         {
-            //TODO: add repository to fetch equations
-            return Enumerable.Range(1, 5).Select(index => new Equation())
-            .ToArray();
+            return repository.GetEquations(qty).ToArray();
         }
     }
 }
