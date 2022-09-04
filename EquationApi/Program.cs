@@ -8,9 +8,19 @@ namespace EquationApi
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-            // TODO: Check CORS
-            // Add services to the container.
 
+            var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                                  policy =>
+                                  {
+                                      policy.WithOrigins(
+                                          "https://equation.albertokato.com.br",
+                                          "http://equation.albertokato.com.br"
+                                      );
+                                  });
+            });
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddRouting(options => options.LowercaseUrls = true);
@@ -25,7 +35,7 @@ namespace EquationApi
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
+            app.UseCors(MyAllowSpecificOrigins);
             //app.UseHttpsRedirection();
 
             app.UseAuthorization();
