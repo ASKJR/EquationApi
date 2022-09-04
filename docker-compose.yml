@@ -19,6 +19,7 @@ services:
     external_links:
       - web.nginx-proxy
     working_dir: /app
+    restart: always
     tty: true
 networks:
   default:
