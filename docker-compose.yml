@@ -5,7 +5,7 @@ services:
     image: ${DOCKER_REGISTRY-}equationapi
     container_name: web.equation-api
     environment:
-      - VIRTUAL_HOST=equation-api.albertokato.com.br
+      - VIRTUAL_HOST=equation-api.albertokato.com
       - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
       - ASPNETCORE_URLS=http://+:3000
       - VIRTUAL_PORT=3000

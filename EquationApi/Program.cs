@@ -16,8 +16,8 @@ namespace EquationApi
                                   policy =>
                                   {
                                       policy.WithOrigins(
-                                          "https://equation.albertokato.com.br",
-                                          "http://equation.albertokato.com.br"
+                                          "https://equation.albertokato.com",
+                                          "http://equation.albertokato.com"
                                       );
                                   });
             });
